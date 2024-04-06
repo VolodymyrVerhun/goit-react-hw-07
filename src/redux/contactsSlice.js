@@ -1,4 +1,3 @@
-// import { nanoid } from "nanoid";
 import { createSelector, createSlice } from "@reduxjs/toolkit";
 import { removeContact, fetchContacts, addContact } from "./contactsOps";
 const INITIAL_STATE = {
@@ -41,6 +40,7 @@ const contactsSlice = createSlice({
       })
       .addCase(addContact.fulfilled, (state, action) => {
         state.loading = false;
+
         state.items = [...state.items, { ...action.payload }];
       })
       .addCase(addContact.rejected, (state, action) => {
